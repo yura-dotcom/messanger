@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.sass';
-import LoginButton from './components/LoginButton';
+import LoginButton from './components/loginButton/LoginButton';
 import { useAuth0 } from '@auth0/auth0-react';
-import DesktopVue from './components/DesktopVue';
-import MobileVue from './components/MobileVue';
+import DesktopVue from './components/desktopVue/DesktopVue';
+import MobileVue from './components/mobileVue/MobileVue';
 
 
 function App() {
@@ -81,13 +81,12 @@ function App() {
 
 
       ) : (
-        <div className='messanger login'>
-          <div className='login-screen'>
-            <h1 className='login-screen-title'>Login to start</h1>
+        <div className='loginScreen'>
+          <h1 className='loginScreenTitle'>Login to start</h1>
 
-            <LoginButton />
-          </div>
+          <LoginButton />
         </div>
+
       )}
 
     </div>

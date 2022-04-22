@@ -1,10 +1,10 @@
 import React from "react";
-import ChatListItem from './ChatListItem';
-import MainActiveChat from './MainActiveChat';
-import LogoutButton from './LogoutButton';
-import Profile from './Profile';
+import ChatListItem from '../chatListItem/ChatListItem';
+import MainActiveChat from '../mainActiveChat/MainActiveChat';
+import LogoutButton from '../logoutButton/LogoutButton';
+import Profile from '../Profile';
 import PropTypes from 'prop-types';
-import './DesktopVue.sass';
+import styles from './DesktopVue.module.sass';
 
 
 function DesktopVue(props) {
@@ -12,23 +12,23 @@ function DesktopVue(props) {
 
   return (
 
-    <div className='messanger'>
-      <div className='left-bar'>
+    <div className={styles.messanger}>
+      <div className={styles.leftBar}>
 
-        <div className='head'>
-          <div className='user'>
+        <div className={styles.head}>
+          <div className={styles.user}>
             <Profile />
             <LogoutButton />
           </div>
-          <div className='livesearch'>
+          <div className={styles.livesearch}>
             <input type='text' placeholder='search' value={search} onChange={(e) => searchContacts(e)} />
           </div>
         </div>
-        <div className='chat-list-holder'>
-          <div className='chat-list-title'>
+        <div className={styles.chatListHolder}>
+          <div className={styles.chatListTitle}>
             <h2>Chats</h2>
           </div>
-          <ul className='chat-list'>
+          <ul className={styles.chatList}>
 
             {contacts.map(contact => {
               return (
@@ -52,14 +52,17 @@ function DesktopVue(props) {
           </ul>
         </div>
       </div>
-      <MainActiveChat
-        activeCont={activeCont}
-        setActiveCont={setActiveCont}
-        contacts={contacts}
-        setContacts={setContacts}
-        isMobile={isMobile}
-      />
-      <footer className='fotter-line'></footer>
+      <div className={styles.rightSide}>
+
+        <MainActiveChat
+          activeCont={activeCont}
+          setActiveCont={setActiveCont}
+          contacts={contacts}
+          setContacts={setContacts}
+          isMobile={isMobile}
+        />
+      </div>
+      <footer className={styles.fotterLine}></footer>
     </div>
 
   )

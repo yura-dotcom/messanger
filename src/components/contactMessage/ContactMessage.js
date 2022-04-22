@@ -1,18 +1,18 @@
 import React from "react";
-import Avatar from "./Avatar";
+import Avatar from "../avatar/Avatar";
 import PropTypes from 'prop-types';
-import './ContactMessage.sass';
+import styles from './ContactMessage.module.sass';
 
 function ContactMessage(props) {
 
   const { avaSrc, messageText, messageTime } = props;
 
   return (
-    <div className='contact-message'>
+    <div className={styles.contactMessage}>
       <Avatar src={avaSrc} />
-      <span className="inner">
-        <p className='contact-message-text'>{messageText}</p>
-        <span className='contact-message-time'>{messageTime}</span>
+      <span className={styles.inner}>
+        <p className={styles.contactMessageText}>{messageText}</p>
+        <span className={styles.contactMessageTime}>{messageTime}</span>
       </span>
     </div>
   )

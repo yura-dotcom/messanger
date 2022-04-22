@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import './Avatar.sass';
+import styles from './Avatar.module.sass';
 
 function Avatar(props) {
 
@@ -9,7 +9,7 @@ function Avatar(props) {
 
   return (
 
-    <div className='avatar'>
+    <div className={styles.avatar}>
       <img src={imgSrc} alt='ava' />
     </div>
   )
@@ -18,7 +18,7 @@ function Avatar(props) {
 }
 
 Avatar.propTypes = {
-  imgSrc: PropTypes.string
+  src: PropTypes.string
 }
 
 export default Avatar;

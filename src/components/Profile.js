@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import PropTypes from 'prop-types';
+import styles from './avatar/Avatar.module.sass';
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -11,7 +12,7 @@ const Profile = () => {
 
   return (
     isAuthenticated && (
-      <div className="avatar">
+      <div className={styles.avatar}>
         <img src={user.picture} alt={user.name} />
         {/* <h2>{user.name}</h2>
         <p>{user.email}</p> */}

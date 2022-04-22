@@ -1,7 +1,7 @@
 import React from "react";
-import Avatar from "./Avatar";
+import Avatar from "../avatar/Avatar";
 import PropTypes from 'prop-types';
-import './ChatListItem.sass';
+import styles from './ChatListItem.module.sass';
 
 function ChatListItem(props) {
 
@@ -34,23 +34,23 @@ function ChatListItem(props) {
   }
 
   return (
-    <li className='chat-list-item' onClick={openChat}>
-      <div className='contact-chat-message'>
+    <li className={styles.chatListItem} onClick={openChat}>
+      <div className={styles.contacChatMessage}>
         <Avatar src={avaSrc} />
         <span>
 
-          <h4 className='contact-name'>{name}</h4>
-          <span className="message-text">{message}</span>
+          <h4 className={styles.contactName}>{name}</h4>
+          <span className={styles.messageText}>{message}</span>
 
           {activeMsg &&
-            <div className="message-ico">
+            <div className={styles.messageIco}>
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcchBq-iW9Ur6IDh36fGfszNOaxS2cMQX4_A&usqp=CAU" alt="ico"/>
             </div>
           }
 
         </span>
       </div>
-      <div className='message-time'>
+      <div className={styles.messageTime}>
         <span>{time}</span>
       </div>
 

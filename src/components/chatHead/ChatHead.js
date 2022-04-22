@@ -1,7 +1,7 @@
 import React from "react";
-import Avatar from "./Avatar";
+import Avatar from "../avatar/Avatar";
 import PropTypes from 'prop-types';
-import './ChatHead.sass';
+import styles from './ChatHead.module.sass';
 
 function ChatHead(props) {
   const { name, ava } = props;
@@ -10,7 +10,7 @@ function ChatHead(props) {
     return (
       <>
         <Avatar src={ava} />
-        <div className='contact-name'>
+        <div className={styles.contactName}>
           <h4>{name}</h4>
         </div>
       </>

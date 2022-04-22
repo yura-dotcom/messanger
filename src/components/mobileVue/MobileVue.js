@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Profile from "./Profile";
-import LogoutButton from "./LogoutButton";
-import ChatListItem from "./ChatListItem";
-import MainActiveChat from "./MainActiveChat";
+import Profile from "../Profile";
+import LogoutButton from "../logoutButton/LogoutButton";
+import ChatListItem from "../chatListItem/ChatListItem";
+import MainActiveChat from "../mainActiveChat/MainActiveChat";
 import PropTypes from 'prop-types';
-import './MobileVue.sass';
+import styles from './MobileVue.module.sass';
 
 function MobileVue(props) {
 
@@ -12,38 +12,40 @@ function MobileVue(props) {
 
   const { search, contacts, setContacts, activeCont, setActiveCont, searchContacts, isMobile } = props;
 
-  
-  
+
+
 
   return (
-    <div className="messanger mobile">
+    <div className={styles.messangerMobile}>
       {activeList ? (
+        <div className={styles.chatWrap}>
 
-        <MainActiveChat
-          activeList={activeList}
-          setActiveList={setActiveList}
-          activeCont={activeCont}
-          setActiveCont={setActiveCont}
-          contacts={contacts}
-          setContacts={setContacts}
-          isMobile={isMobile}
-        />
+          <MainActiveChat
+            activeList={activeList}
+            setActiveList={setActiveList}
+            activeCont={activeCont}
+            setActiveCont={setActiveCont}
+            contacts={contacts}
+            setContacts={setContacts}
+            isMobile={isMobile}
+          />
+        </div>
       ) : (
-        <div className='left-bar'>
-          <div className='head'>
-            <div className='user'>
+        <div className={styles.leftBar}>
+          <div className={styles.head}>
+            <div className={styles.user}>
               <Profile />
               <LogoutButton />
             </div>
-            <div className='livesearch'>
+            <div className={styles.livesearch}>
               <input type='text' placeholder='search' value={search} onChange={(e) => searchContacts(e)} />
             </div>
           </div>
-          <div className='chat-list-holder'>
-            <div className='chat-list-title'>
+          <div className={styles.chatListHolder}>
+            <div className={styles.chatListTitle}>
               <h2>Chats</h2>
             </div>
-            <ul className='chat-list'>
+            <ul className={styles.chatList}>
 
               {contacts.map(contact => {
                 return (
@@ -71,7 +73,7 @@ function MobileVue(props) {
 
 
       )}
-      <footer className='fotter-line'></footer>
+      <footer className={styles.fotterLine}></footer>
     </div>
   )
 }
@@ -85,7 +87,7 @@ MobileVue.propTypes = {
   setActiveCont: PropTypes.func,
   searchContacts: PropTypes.func,
   isMobile: PropTypes.bool
-  
+
 }
 
 export default MobileVue;

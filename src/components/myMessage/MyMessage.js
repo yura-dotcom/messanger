@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import './MyMessage.sass';
+import styles from './MyMessage.module.sass';
 
 function MyMessage(props) {
 
@@ -9,9 +9,9 @@ function MyMessage(props) {
 
 
   return (
-    <div className='my-message'>
-      <p className='my-message-text'>{messageText}</p>
-      <span className='my-message-time'>{messageTime}</span>
+    <div className={styles.myMessage}>
+      <p className={styles.myMessageText}>{messageText}</p>
+      <span className={styles.myMessageTime}>{messageTime}</span>
     </div>
   )
 

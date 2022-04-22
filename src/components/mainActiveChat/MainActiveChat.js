@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from "react";
-import ChatHead from "./ChatHead";
-import ContactMessage from "./ContactMessage";
-import MessageForm from "./MessageForm";
-import MyMessage from "./MyMessage";
+import ChatHead from "../chatHead/ChatHead";
+import ContactMessage from "../contactMessage/ContactMessage";
+import MessageForm from "../messageForm/MessageForm";
+import MyMessage from "../myMessage/MyMessage";
 import PropTypes from 'prop-types';
-import './MainActiveChat.sass';
+import styles from './MainActiveChat.module.sass';
 
 
 function MainActiveChat(props) {
@@ -23,16 +23,16 @@ function MainActiveChat(props) {
   });
 
   return (
-    <div className='main active-chat'>
-      <div className='active-chat-head'>
+    <div className={styles.main}>
+      <div className={styles.activeChatHead} >
         <ChatHead
           name={name}
           ava={ava}
         />
         {isMobile && (
 
-          <div className="list-action-wrap">
-            <button className="list-action"
+          <div className={styles.listActionWrap}>
+            <button className={styles.listAction}
               onClick={() => {
                 setActiveList(false)
                 localStorage.setItem('activeCont', JSON.stringify({}));
@@ -43,7 +43,7 @@ function MainActiveChat(props) {
           </div>
         )}
       </div>
-      <div className='active-chat-body' ref={scrBar}>
+      <div className={styles.activeChatBody} ref={scrBar}>
         {
           name ? (
             messages.map((msg, i) => {
@@ -72,7 +72,7 @@ function MainActiveChat(props) {
           )
         }
       </div>
-      <div className='new-message-sender'>
+      <div className={styles.newMessageSender}>
         <MessageForm
           name={name}
           contacts={contacts}
